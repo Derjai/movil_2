@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class W1 extends StatelessWidget {
-  const W1({super.key});
-  //color: Theme.of(context).primaryColor,
-  // color: Theme.of(context).colorScheme.inversePrimary,
-  // container margin: const EdgeInsets.all(10),
-  // container padding: const EdgeInsets.all(10),
+  const W1({
+    super.key,
+    required this.callBack,
+    required this.callBack2,
+    required this.x,
+  });
+  final Function() callBack;
+  final Function() callBack2;
+  final String x;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +22,7 @@ class W1 extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             color: Theme.of(context).colorScheme.inversePrimary,
             child: Text(
-              '0',
+              x,
               key: const Key('W1Value'),
             ),
           ),
@@ -28,11 +32,11 @@ class W1 extends StatelessWidget {
             child: Column(
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => callBack(),
                     icon: const Icon(Icons.add),
                     key: const Key('W1Add')),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => callBack2(),
                     icon: const Icon(Icons.remove),
                     key: const Key('W1Sub'))
               ],
